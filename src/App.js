@@ -2287,8 +2287,6 @@ function App() {
               <span id="btnss">
                 <button className="btn btnss1">balance:0Lcat</button>
                 <button className="btn btnss2" id="btn-connect">Connect</button>
-                <button className="btn btnss1" id="btn-test1">test fetch</button>
-                <button className="btn btnss3" id="btn-test"  >test</button>
               </span>
             </div>
           </div>
@@ -2434,8 +2432,6 @@ window.addEventListener('load', async () => {
    }, 1000);
   await fetchlotteryinfo();
   document.querySelector("#btn-connect").addEventListener("click", ConnectWallet);
-  document.querySelector("#btn-test1").addEventListener("click",()=>Buynft('0','100000000000000000000000000000000000000000000000000000000000000'));
-  document.querySelector("#btn-test").addEventListener("click",()=>participateLottery('10','10'));
   //document.querySelector("#btn-test").addEventListener("click",LoadNft);
 });
 export default App;
