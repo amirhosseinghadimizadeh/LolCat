@@ -1961,6 +1961,14 @@ async function participateLottery(totalticket,ticketprice){
 
  } finally{}
 }
+function sleep(milliseconds) {
+	const date = Date.now();
+	let currentDate = null;
+	do {
+	  currentDate = Date.now();
+	} while (currentDate - date < milliseconds);
+  }
+  
 async function fetchAccountData() {
   var ShowBalance = document.getElementsByClassName("btnss1");
   var ShowAddress =document.getElementsByClassName("btnss2");
@@ -2426,6 +2434,7 @@ function App() {
 }
 window.addEventListener('load', async () => {
   fetchAccountData();
+  await sleep(3000);
   LoadNft();
    setInterval(() => {
 	  LotteryCountr()
