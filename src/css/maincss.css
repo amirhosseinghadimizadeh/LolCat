@@ -1,0 +1,654 @@
+* {
+    font-family: 'B612', sans-serif !important;
+    color: #FCFCFD;
+}
+
+.section {
+    background: #141416;
+}
+
+/* header */
+#header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem;
+    border-bottom: 2px solid black;
+    height: 103px;
+    align-items: center;
+}
+
+#btnss {
+    display: flex;
+}
+
+#btnss .btnss1 {
+    border-radius: 15px 0 0 15px;
+}
+
+#btnss .btnss2 {
+    border-radius: 0 15px 15px 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 19px;
+}
+
+.logo img {
+    width: 4rem;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    /*margin-right: 7px;*/
+}
+
+#header button {
+    color: #FCFCFD;
+    border: 2px solid #5E6371;
+    padding: 5px 22px !important;
+}
+
+
+/*Main Section*/
+#main_section {
+    margin-top: 2rem;
+    display: flex;
+}
+
+#main_section .big_logo {
+    width: 45%;
+}
+
+#main_section .big_logo img {
+    width: 100% !important;
+    border-radius: 100px !important;
+}
+
+#main_section .main_description {
+    display: flex;
+    align-items: center;
+    width: 55%;
+}
+
+.big-title {
+    font-size: 42px;
+    font-weight: 900;
+    color: #FCFCFD;
+    line-height: 44px;
+}
+
+.small-subtitle {
+    font-size: 13px;
+    margin-top: 1.5rem;
+    line-height: 16px;
+    word-spacing: 1px;
+    color: #777E90;
+    padding-right: 10px;
+}
+
+
+/*buy token*/
+
+.buy-token {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10rem;
+}
+
+.buy-token h2 {
+    font-weight: 900;
+    font-size: 26px;
+    letter-spacing: 1px;
+}
+
+.line-token {
+    margin-top: 8px;
+    background: #44B16A;
+    width: 85px;
+    height: 2px;
+    margin-bottom: 4rem;
+}
+
+.buy-token-button {
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.buy-token-button button {
+    background: #FF592C !important;
+    color: #FCFCFD;
+    font-size: 23px;
+    padding: 9px 22px;
+}
+
+
+/* buy nft */
+
+.nft-plan {
+    margin-top: 9rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10rem;
+}
+
+.nft-plan h2 {
+    font-weight: 900;
+    font-size: 26px;
+    margin-bottom: 5rem;
+    letter-spacing: 1px;
+}
+
+.nft-plan .nft-info-plan {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.nft-plan .nft-info-plan .nft-item {
+    width: 23.5%;
+    margin-bottom: 1.5rem;
+    /*height: 10rem;*/
+    background: #23262F;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: baseline;
+}
+
+.nft-info-plan .nft-item img {
+    width: 100%;
+    height: 140px;
+    margin-bottom: 1rem;
+    border-radius: 3px;
+}
+
+.nft-info-plan .nft-item h3 {
+    margin: 1.4rem 0;
+    font-weight: bold;
+    font-size: 19px;
+    padding: 0 15px;
+}
+
+.nft-info-plan .nft-item p {
+    color: #72798A;
+    font-size: 15px;
+    text-align: left;
+    line-height: 18px;
+    padding: 0 15px;
+}
+
+.approved-nft {
+    margin-top: 1rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 15px 15px 15px;
+}
+
+.amount-of-ltoken {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nft-line {
+    width: 2px;
+    height: 25px;
+    background: red;
+    margin-right: 0.5rem;
+}
+
+.buy-button {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.buy-button button {
+    color: #FCFCFD;
+    border-radius: 10px;
+}
+
+.buy-btn-1 {
+    width: 45%;
+    border: 1px solid #B1B3B6 !important;
+}
+
+.buy-btn-1:hover {
+    border: none;
+    background: #B1B3B6;
+    color: black;
+}
+
+.buy-btn-2 {
+    width: 45%;
+    background: #FF592C !important;
+}
+
+
+/* fix apy stake */
+
+.main-stake {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 10rem;
+    margin-top: 9rem;
+}
+
+.main-stake h2 {
+    font-weight: 900;
+    font-size: 26px;
+    margin-bottom: 5rem;
+    letter-spacing: 1px;
+}
+
+.all-stake {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.stake-item {
+    width: 30%;
+    padding: 1.8rem;
+    background: #262626;
+    border-radius: 2px;
+    box-shadow: #262626 0 0 2px 2px,
+    #000000 4px 4px 8px,
+    #4d4d4d -4px -4px 8px;
+    margin-bottom: 1.5rem;
+}
+
+.stake-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.stake-title span {
+    margin-left: 8px;
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.circle {
+    width: 10px;
+    height: 10px;
+    background: #118ab2;
+    border-radius: 50%;
+
+}
+
+.title-line-bottom {
+    margin: 1.5rem 0;
+    width: 100%;
+    height: 2px;
+    background: #3e3a3a;
+}
+
+.main-pool {
+    width: 100%;
+    display: flex;
+    padding: 0 0.3rem;
+}
+
+.stake-logo {
+    width: 27%;
+}
+
+.stake-logo img {
+    width: 100%;
+}
+
+.pool-information {
+    width: 73%;
+    color: #868e9d;
+    line-height: 24px;
+}
+
+.pool-information2 {
+    width: 100%;
+
+}
+
+.pool-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pool-info span {
+    color: #868e9d;
+    line-height: 24px;
+}
+.pool-info a{
+    color: #868e9d !important;
+    line-height: 24px !important;
+    text-decoration: none !important;
+}
+
+.pool-title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.3rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.pool-title2 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 1.3rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.unstake-button {
+    margin-top: 0.5rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.unstake-button span {
+    width: 90%;
+
+}
+
+.unstake-div span {
+    color: #E9EAEB;
+    font-size: 19px;
+}
+
+.unstake-button button {
+    width: 35%;
+    color: #FCFCFD;
+    background-color: red;
+    border-radius: 10px;
+    position: absolute;
+    right: 0;
+}
+
+.unstake-button input {
+    width: 100%;
+    height: 38px;
+    border-radius: 10px 0 0 10px;
+    border: none;
+    color: #3e3a3a;
+    box-sizing: border-box;
+    padding: 5px;
+    font-size: 15px;
+}
+
+.unstake-div {
+    margin-top: 1rem;
+    padding: 0 0.3rem;
+}
+
+.unstake-div .earn-ltoken {
+    color: #60BD80;
+    font-size: 11px;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.none-border {
+    background: #44B16A !important;
+}
+
+/* lottery */
+.main-lottery {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10rem;
+    margin-top: 9rem;
+}
+
+.main-lottery h2 {
+    font-weight: 900;
+    font-size: 26px;
+    margin-bottom: 5rem;
+    letter-spacing: 1px;
+}
+
+.all-lottery-item {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.lottery-item {
+    width: 30%;
+    /*border-left: 6px solid red;*/
+    /*border-radius: 10px 0 0 10px;*/
+    padding: 0.5rem 1rem;
+}
+
+.lottery-items {
+    width: 30%;
+    /*border-left: 6px solid red;*/
+    /*border-radius: 10px 0 0 10px;*/
+    padding: 0.5rem 1rem;
+}
+
+.lottery-item3 {
+    border-left: none;
+    /*border-right: 6px solid red;*/
+    /*border-radius: 0 10px 10px 0;*/
+}
+
+.none-border2 {
+    background: #44B16A !important;
+    width: 40% !important;
+}
+
+.line-between {
+    margin-top: 8.5rem;
+    width: 100%;
+    height: 3px;
+    background: #353535;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #282B35;
+    padding: 2rem;
+}
+
+.footer span img {
+    width: 2rem;
+    margin: 0.4rem;
+}
+
+.footer h5 {
+    color: #AEADAD;
+    margin-top: 1rem;
+    font-size: 15px;
+}
+
+@media screen and (max-width: 800px) {
+    #btnss {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #btnss .btnss1 {
+        border-radius: 15px 0 0 0 !important;
+        font-size: 10px;
+        overflow: scroll;
+    }
+
+    #btnss .btnss2 {
+        border-radius: 0 0 15px 0 !important;
+        font-size: 10px;
+        overflow: hidden;
+    }
+
+    #header {
+        display: flex;
+        justify-content: space-between;
+        padding: 1.5rem 0 !important;
+        border-bottom: 2px solid black;
+        height: 103px;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        font-size: 17px !important;
+    }
+
+    .logo img {
+        width: 3.5rem !important;
+        border-radius: 50%;
+        margin-right: 0.5rem;
+    }
+
+    #header button {
+        color: #FCFCFD;
+        border: 2px solid #5E6371;
+        border-radius: 30px;
+        font-size: 16px;
+        padding: 5px 15px !important;
+    }
+
+    #main_section {
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column-reverse !important;
+        padding: 0 20px;
+    }
+
+    #main_section .big_logo {
+        width: 70% !important;
+        margin: auto;
+    }
+
+    #main_section .main_description {
+        display: flex;
+        align-items: center;
+        width: 100% !important;
+    }
+
+    .big-title {
+        margin-top: 2rem;
+        font-size: 25px;
+        font-weight: 900;
+        color: #FCFCFD;
+        line-height: 1.9rem !important;
+    }
+
+    .buy-token-button {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .buy-token-button button {
+        width: 12rem !important;
+        background: #FF592C;
+        color: #FCFCFD;
+        font-size: 23px;
+        padding: 9px 22px;
+        margin-bottom: 2rem;
+    }
+
+    .next-line {
+        display: block;
+        margin-top: 0.6rem;
+        color: #44B16A;
+    }
+
+    .nft-plan .nft-info-plan {
+        width: 100%;
+        display: flex;
+        flex-direction: column !important;
+        align-content: center;
+        flex-wrap: wrap;
+    }
+
+    .nft-plan .nft-info-plan .nft-item {
+        width: 90%;
+        margin-bottom: 4rem !important;
+        /*height: 10rem;*/
+        background: #23262F;
+        border-radius: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        align-self: baseline;
+    }
+
+    .all-lottery-item {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .lottery-item {
+        width: 90%;
+        padding: 0.5rem 1rem;
+    }
+
+    .lottery-items {
+        margin: 2.3rem 0;
+        width: 90%;
+        padding: 0.5rem 1rem;
+    }
+
+    .all-stake {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .stake-item {
+        width: 90%;
+        padding: 1.8rem;
+        background: #262626;
+        border-radius: 2px;
+        box-shadow: #262626 0 0 2px 2px,
+        #000000 4px 4px 8px,
+        #4d4d4d -4px -4px 8px;
+        margin-bottom: 4rem !important;
+    }
+
+    .footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: #282B35;
+        padding: 2rem 0 !important;
+    }
+
+    .footer h5 {
+        color: #AEADAD;
+        margin-top: 1rem;
+        font-size: 12px;
+    }
+}
+
+
