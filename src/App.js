@@ -1884,7 +1884,7 @@ var lastnftinfo;
 var lastlotterytime;
 var lnftcontract="0x8bc6bB71e93FBC2f6B8D6Ca583c0d6289CEd0BB5";
 var tokencontract="0xC7772B954E9F1Be990a0231287a85959FC72b771";
-var Lstorecontract="0xc860F3fd2ef97Aa18EC44d06Ce1562e5B48AfD2f";
+var Lstorecontract="0x0df9bb21eb2dee35d15125e35a327f3d16397aca";
 var Llotterycontract="0xF3F14E091D852864ACaCA97A2fa6661A209eB513";
 function secsToTime(secs) {
     let d = secs / 8.64e4 | 0;
@@ -2150,7 +2150,7 @@ async function ConnectWallet() {
   }
 async function Getnftinfo(tokenid){
   const request = new XMLHttpRequest();
-  const w3=new Web3('https://rinkeby.infura.io/v3/ee3cd30dc6ea4f86a6b44bc008a1a27b'); 
+  const w3=new Web3('https://data-seed-prebsc-1-s1.binance.org:8545'); 
   var metadata=await new w3.eth.Contract(lnftabi,lnftcontract).methods.tokenURI(tokenid).call();
   var result;
 request.open('GET', metadata); 
