@@ -2396,10 +2396,10 @@ function App() {
             <footer>
               <div className="footer">
                 <span>
-                  <a href="#"><img src={twitter} alt="" /></a>
-                  <a href="#"><img src={telegram} alt="" /></a>
-                  <a href="#"><img src={github} alt="" /></a>
-                  <a href="#"><img src={medium} alt="" /></a>
+                  <a href="https://twitter.com/LolCat_finance/"><img src={twitter} alt="" /></a>
+                  <a href="https://t.me/lol_cat_en/"><img src={telegram} alt="" /></a>
+                  <a href="https://github.com/LolCatFInance/"><img src={github} alt="" /></a>
+                  <a href="https://medium.com/@Lolcat/"><img src={medium} alt="" /></a>
                 </span>
                 <h5>designed with love by ltoken team and community</h5>
               </div>
