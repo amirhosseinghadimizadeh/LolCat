@@ -28,10 +28,10 @@ let Lstoreinstance;
 const MySwal = withReactContent(Swal);
 var lastnftinfo;
 var lastlotterytime;
-var lnftcontract="0xf2ae43F3754643463A8f273FBA3921D2D214eB06";
+var lnftcontract="0x8bc6bB71e93FBC2f6B8D6Ca583c0d6289CEd0BB5";
 var tokencontract="0xd5BDc03417e26c5697261D079b93042d0c0079E1";
-var Lstorecontract="0xec7f2F2A64b418f566493005816Ccf8604B41830";
-var Llotterycontract="0x8AEb3336C645cCa206c6BBf5b1f5a73144A307c1";
+var Lstorecontract="0xc860F3fd2ef97Aa18EC44d06Ce1562e5B48AfD2f";
+var Llotterycontract="0xF3F14E091D852864ACaCA97A2fa6661A209eB513";
 function secsToTime(secs) {
     let d = secs / 8.64e4 | 0;
     let H = (secs % 8.64e4) / 3.6e3 | 0;
@@ -45,7 +45,7 @@ function secsToTime(secs) {
 	  document.getElementById('lotterytime').innerHTML=secsToTime(lastlotterytime);
   }
 async function fetchlotteryinfo(){
-  const w3=new Web3('https://data-seed-prebsc-1-s1.binance.org:8545/');
+  const w3=new Web3('https://rinkeby.infura.io/v3/ee3cd30dc6ea4f86a6b44bc008a1a27b');
   var Llottery=await new w3.eth.Contract(Llotteryabi,Llotterycontract).methods;
   var RoundNumber=await Llottery.RoundCount().call();
   var Roundinfo=await Llottery.Lottery(RoundNumber).call();
@@ -71,7 +71,7 @@ document.getElementById('totaltickets').innerHTML=TotalTickets;
 document.getElementById('ticketprice').innerHTML=w3.utils.fromWei(TicketPrice) +" lcat";
 document.getElementById('lotterytime').innerHTML=secsToTime(RemainedTime);
 document.getElementById('lotterywinner').innerHTML=LotteryWinner.substr(0,4)+"..."+LotteryWinner.substr(38,42);;
-document.getElementById('lotterywinner').href="https://testnet.bscscan.com/token/"+tokencontract+"?a="+LotteryWinner;
+document.getElementById('lotterywinner').href="https://rinkeby.etherscan.io/token/"+tokencontract+"?a="+LotteryWinner;
 document.getElementById('usertickets').innerHTML=UserTotalTicket+" Tickets";
 lastlotterytime=RemainedTime;
 document.getElementById('doparticipate').onclick=function(){participateLottery(document.getElementById('participatevalue').value,w3.utils.fromWei(TicketPrice))};
@@ -262,7 +262,7 @@ async function ConnectWallet() {
   await setinfo();
   }
   async function setinfo(){
-    const w3=new Web3('https://data-seed-prebsc-1-s1.binance.org:8545/');
+    const w3=new Web3('https://rinkeby.infura.io/v3/ee3cd30dc6ea4f86a6b44bc008a1a27b');
     Lstoreinstance=new w3.eth.Contract(lstoreabi,Lstorecontract).methods;
     var totalnft=idinfo.length;
     var i=0;
@@ -296,7 +296,7 @@ async function ConnectWallet() {
   }
 async function Getnftinfo(tokenid){
   const request = new XMLHttpRequest();
-  const w3=new Web3('https://data-seed-prebsc-1-s1.binance.org:8545/'); 
+  const w3=new Web3('https://rinkeby.infura.io/v3/ee3cd30dc6ea4f86a6b44bc008a1a27b'); 
   var metadata=await new w3.eth.Contract(lnftabi,lnftcontract).methods.tokenURI(tokenid).call();
   var result;
 request.open('GET', metadata); 
@@ -395,7 +395,7 @@ async function Buynft(itemid,nftprice){
     doalert("error","Nft Purchanse Faild.");
   }
 }
-const w3=new Web3('https://data-seed-prebsc-1-s1.binance.org:8545/'); 
+const w3=new Web3('https://rinkeby.infura.io/v3/ee3cd30dc6ea4f86a6b44bc008a1a27b'); 
 var totaladd=0;
 async function LoadNftPlans(tokenid,tokenprice){
   await Getnftinfo(tokenid);
