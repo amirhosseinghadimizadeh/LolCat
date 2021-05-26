@@ -6,10 +6,10 @@ import '@sweetalert2/theme-dark/';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Web3 from "web3";
-import tokenabi from 'abi/tokenabi.json';
-import lstoreabi from 'abi/lstoreabi.json';
-import lnftabi from 'abi/lnftabi.json';
-import Llotteryabi from 'abi/Llotteryabi.json';
+import tokenabi from '/abi/tokenabi.json';
+import lstoreabi from '/abi/lstoreabi.json';
+import lnftabi from '/abi/lnftabi.json';
+import Llotteryabi from '/abi/Llotteryabi.json';
 import Web3Modal, { Provider } from "web3modal";
 import logo from "./img/1577 [Converted].png"
 import lotteryimage from "./img/lottery.jpg"
