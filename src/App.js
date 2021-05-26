@@ -9,7 +9,7 @@ import Web3 from "web3";
 import tokenabi from './abi/tokenabi.json';
 import lstoreabi from './abi/lstoreabi.json';
 import lnftabi from './abi/lnftabi.json';
-import Llotteryabi from './abi/Llotteryabi.json';
+import Llotteryabi from './abi/lloteryabi.json';
 import Web3Modal, { Provider } from "web3modal";
 import logo from "./img/1577 [Converted].png"
 import lotteryimage from "./img/lottery.jpg"
