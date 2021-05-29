@@ -579,7 +579,14 @@ function App() {
   );
 }
 window.addEventListener('load', async () => {
-  
+  fetchAccountData();
+  await sleep(3000);
+  LoadNft();
+   setInterval(() => {
+	  LotteryCountr()
+   }, 1000);
+  await fetchlotteryinfo();
+  document.querySelector("#btn-connect").addEventListener("click", ConnectWallet);
   //document.querySelector("#btn-test").addEventListener("click",LoadNft);
 });
 export default App;
