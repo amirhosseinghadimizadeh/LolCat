@@ -404,221 +404,242 @@ doalert('info', "coming soon...")
 }
 function App() {
 return (
+
 <div className="App">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
-<link rel="preconnect" href="https://fonts.gstatic.com" />
-<link href="https://fonts.googleapis.com/css2?family=B612&display=swap" rel="stylesheet" />
-<header className="App-header">
-   <section className="section">
-      <div className="container">
-         <div id="header">
-            <div className="logo">
-               <img src={logo} alt="" />
-               <span>Lolcat Platform</span>
-            </div>
-            <span id="btnss">
-            <button className="btn btnss1">balance:0Lcat</button>
-            <button className="btn btnss2" id="btn-connect">Connect</button>
-            </span>
-         </div>
-      </div>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+	<link rel="preconnect" href="https://fonts.gstatic.com" />
+	<link href="https://fonts.googleapis.com/css2?family=B612&display=swap" rel="stylesheet" />
+	<header className="App-header">
+		<section className="section">
+			<div className="container">
+				<div id="header">
+					<div className="logo">
+						<img src={logo} alt="" />
+						<span>Lolcat Platform</span>
+					</div>
+					<span id="btnss">
+						<button className="btn btnss1">balance:0Lcat</button>
+						<button className="btn btnss2" id="btn-connect">Connect</button>
+					</span>
+				</div>
+			</div>
       {/* main */}
-      <section>
-         <div className="container">
+      
+			<section>
+				<div className="container">
          {/*  main section */}
-         <div id="main_section">
-            <div className="main_description">
-               <div>
-                  <h1 className="big-title">Lolcat Meme And Nft Gaming Platform <br /><br /></h1>
-                  <p className="small-subtitle">Lolcat Is Nft Gaming Platform with liquidity Based Supply token Let User To Buy And  Level Up their Nft Power And Win Agains Another Nfts</p>
-               </div>
-            </div>
-            <div className="big_logo">
-               <img src={logo} alt="" />
-            </div>
-         </div>
+         
+					<div id="main_section">
+						<div className="main_description">
+							<div>
+								<h1 className="big-title">Lolcat Meme And Nft Gaming Platform 
+									<br />
+									<br />
+								</h1>
+								<p className="small-subtitle">Lolcat Is Nft Gaming Platform with liquidity Based Supply token Let User To Buy And  Level Up their Nft Power And Win Agains Another Nfts</p>
+							</div>
+						</div>
+						<div className="big_logo">
+							<img src={logo} alt="" />
+						</div>
+					</div>
          {/* buy token */}
-         <div className="buy-token">
-            <h2>BUY TOKEN</h2>
-            <span className="line-token" />
-               <div className="buy-token-button">
-                  <button className="btn" onClick={comingsoon}>Buy At PancakeSwap</button>
-                  <button className="btn" onClick={comingsoon}>Buy At ApeSwap</button>
-                  <button className="btn" onClick={comingsoon}>Buy At BakerySwap</button>
-               </div>
-         </div>
-         <div className="line-between" />
+         
+					<div className="buy-token">
+						<h2>BUY TOKEN</h2>
+						<span className="line-token" />
+						<div className="buy-token-button">
+							<button className="btn" onClick={comingsoon}>Buy At PancakeSwap</button>
+							<button className="btn" onClick={comingsoon}>Buy At ApeSwap</button>
+							<button className="btn" onClick={comingsoon}>Buy At BakerySwap</button>
+						</div>
+					</div>
+					<div className="line-between" />
          {/* nft plan */}
-         <div class="nft-plan">
-         <h2>BUY LOL NFT AND <span class="next-line">GROW WITH US</span></h2>
-         <div class="nft-info-plan " id="NftContainer">
-         </div>
-         </div>
-         <div className="line-between" />
+         
+					<div class="nft-plan">
+						<h2>BUY LOL NFT AND 
+							<span class="next-line">GROW WITH US</span>
+						</h2>
+						<div class="nft-info-plan " id="NftContainer"></div>
+					</div>
+					<div className="line-between" />
          {/* lottery */}
-         <div className="main-lottery">
-         <h2>LOTTERY</h2>
-         <div className="all-lottery-item">
-         <div className="lottery-item">
-         <div className="pool-info">
-         <span style={{ fontWeight: 900, marginBottom: '0.4rem' }}>participate:</span>
-         </div>
-         <div className="pool-info">
-         <span>lottery round:</span>
-         <span id="lotteryround">xxxxxxxxxxxx</span>
-         </div>
-         <div className="pool-info">
-         <span >total tickets:</span>
-         <span id="totaltickets">xxxx</span>
-         </div>
-         <div className="pool-info">
-         <span>ticket price:</span>
-         <span id="ticketprice">xxxx</span>
-         </div>
-         <div className="pool-info">
-         <span >my tickets:</span>
-         <span id="usertickets">xxxx</span>
-         </div>
-         <div className="pool-info">
-         <span>remained time:</span>
-         <span id="lotterytime">xx:xx:xx</span>
-         </div>
-         <div className="pool-info">
-         <span>last lottery winner:</span>
-         <a id='lotterywinner'>000,000,000</a>
-         </div>
-         <div className="unstake-div">
-         <span className="earn-ltoken">lcat to participate</span>
-         <div className="unstake-button">
-         <span><input type="text" placeholder={100} id="participatevalue" /></span>
-         <button className="btn none-border2" id="doparticipate">participate</button>
-         </div>
-         </div>
-         </div>
-         <div className="lottery-items">
-         <img style={{ width: '100%', height: '100%', borderRadius: '5px' }} src={lotteryimage} alt="" />
-         </div>
-         <div className="lottery-item lottery-item3">
-         <div className="pool-info">
-         <span>Meow Meow Lets Try Lcat Token Lottery And Try Our Chance To Win Huge Amount Of Lcat Every Ticket Cost Randomly Every Round Between 1 to 10 Lcat And Total Reward Is 60 Percent of Total Ticket And Remained Percent Will Be Used For Token Burning And Tresury Fund </span>
-         </div>
-         </div>
-         </div>
-         </div>
-         <div className="line-between" />
+         
+					<div className="main-lottery">
+						<h2>LOTTERY</h2>
+						<div className="all-lottery-item">
+							<div className="lottery-item">
+								<div className="pool-info">
+									<span style={{ fontWeight: 900, marginBottom: '0.4rem' }}>participate:</span>
+								</div>
+								<div className="pool-info">
+									<span>lottery round:</span>
+									<span id="lotteryround">xxxxxxxxxxxx</span>
+								</div>
+								<div className="pool-info">
+									<span >total tickets:</span>
+									<span id="totaltickets">xxxx</span>
+								</div>
+								<div className="pool-info">
+									<span>ticket price:</span>
+									<span id="ticketprice">xxxx</span>
+								</div>
+								<div className="pool-info">
+									<span >my tickets:</span>
+									<span id="usertickets">xxxx</span>
+								</div>
+								<div className="pool-info">
+									<span>remained time:</span>
+									<span id="lotterytime">xx:xx:xx</span>
+								</div>
+								<div className="pool-info">
+									<span>last lottery winner:</span>
+									<a id='lotterywinner'>000,000,000</a>
+								</div>
+								<div className="unstake-div">
+									<span className="earn-ltoken">lcat to participate</span>
+									<div className="unstake-button">
+										<span>
+											<input type="text" placeholder={100} id="participatevalue" />
+										</span>
+										<button className="btn none-border2" id="doparticipate">participate</button>
+									</div>
+								</div>
+							</div>
+							<div className="lottery-items">
+								<img style={{ width: '100%', height: '100%', borderRadius: '5px' }} src={lotteryimage} alt="" />
+							</div>
+							<div className="lottery-item lottery-item3">
+								<div className="pool-info">
+									<span>Meow Meow Lets Try Lcat Token Lottery And Try Our Chance To Win Huge Amount Of Lcat Every Ticket Cost Randomly Every Round Between 1 to 10 Lcat And Total Reward Is 60 Percent of Total Ticket And Remained Percent Will Be Used For Token Burning And Tresury Fund </span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div className="line-between" />
          {/* fixed apy stake */}
          {/* lol boxes */}
-        <div className="main-lottery">
-        <h1 class="lol-title">Lcat Token Features</h1>
-         <div class="all-lol-box">
-         <div class="lol-item">
-         <img src={icon_piggy} alt="" />
-         <h3>Designed for holders</h3>
-         <p>The VLK smart contract applies a 6% fee (5 + 1 %) to each transaction and instantly splits
+        
+					<div className="main-lottery main-features">
+						<h1 class="lol-title">Lcat Token Features</h1>
+						<div class="all-lol-box">
+							<div class="lol-item">
+								<img src={icon_piggy} alt="" />
+								<h3>Designed for holders</h3>
+								<p>The VLK smart contract applies a 6% fee (5 + 1 %) to each transaction and instantly splits
          those fees among all holders of the token. Fees are awarded by the smart contract and are
          immediately available in the holders balance.
          </p>
-         </div>
-         <div class="lol-item">
-         <img src={icon_growth} alt="" />
-         <h3>Designed for holders</h3>
-         <p>5% fees go to holders of the token. The percentage of fees you earn is calculated by the
+							</div>
+							<div class="lol-item">
+								<img src={icon_growth} alt="" />
+								<h3>Designed for holders</h3>
+								<p>5% fees go to holders of the token. The percentage of fees you earn is calculated by the
          percentage of VLK that you own among holders.
          We want to reward true holders that's why we designed this system.
          </p>
-         </div>
-         <div class="lol-item">
-         <img src={icon_diamond} alt="" />
-         <h3>Designed for holders</h3>
-         <p>1% fees are instantly burnt. This reduces the circulating supply and ensures the Vulkania
+							</div>
+							<div class="lol-item">
+								<img src={icon_diamond} alt="" />
+								<h3>Designed for holders</h3>
+								<p>1% fees are instantly burnt. This reduces the circulating supply and ensures the Vulkania
          token will become an ultra scarce token.
          </p>
-         </div>
-         <div class="lol-item">
-         <img src={icon_burn} alt="" />
-         <h3>Designed for holders</h3>
-         <p>20% (8,000,000 VLK) of total supply is in a reserve for additional burns. Every quarter, 50%
+							</div>
+							<div class="lol-item">
+								<img src={icon_burn} alt="" />
+								<h3>Designed for holders</h3>
+								<p>20% (8,000,000 VLK) of total supply is in a reserve for additional burns. Every quarter, 50%
          of total burnt fees will be burnt to increase scarcity of the VLK token.
          </p>
-         </div>
-         </div>
-        </div>
+							</div>
+						</div>
+					</div>
+					<div className="line-between" />
          {/* teams */}
-         <h1 class="lol-title">POWERED BY A TEAM</h1>
-         <div class="teams-boxes">
-         <div class="teams-item">
-         <img class="person-img" src={img_1} alt="" />
-         <h3>Nicolas</h3>
-         <h4>Toulouse, France</h4>
-         <h5>CEO & Co-founder</h5>
-         <div class="all-img-social-medias">
-         </div>
-         </div>
-         <div class="teams-item">
-         <img class="person-img" src={img_2} alt="" />
-         <h3>Nicolas</h3>
-         <h4>Toulouse, France</h4>
-         <h5>CEO & Co-founder</h5>
-         <div class="all-img-social-medias">
-         </div>
-         </div>
-         <div class="teams-item">
-         <img class="person-img" src={img_3} alt="" />
-         <h3>Nicolas</h3>
-         <h4>Toulouse, France</h4>
-         <h5>CEO & Co-founder</h5>
-         <div class="all-img-social-medias">
-         </div>
-         </div>
-         <div class="teams-item">
-         <img class="person-img" src={img_4} alt="" />
-         <h3>Nicolas</h3>
-         <h4>Toulouse, France</h4>
-         <h5>CEO & Co-founder</h5>
-         <div class="all-img-social-medias">
-         </div>
-         </div>
-         </div>
-         </div>
-      </section>
-   </section>
-   <section style={{ background: '#282B35' }}>
-   <div className="container">
-   <footer>
-   <div className="footer">
-   <span>
-   <a href="https://twitter.com/LolCat_finance/"><img src={twitter} alt="" /></a>
-   <a href="https://t.me/lol_cat_en/"><img src={telegram} alt="" /></a>
-   <a href="https://github.com/LolCatFInance/"><img src={github} alt="" /></a>
-   <a href="https://medium.com/@Lolcat/"><img src={medium} alt="" /></a>
-   </span>
-   <h5>designed with love by ltoken team and community</h5>
-   </div>
-   </footer>
-   </div>
-   </section>
-   <div>
-   <div class="nft-item" id="NftPlans">
-   <h3>NFT Names</h3>
-   <img src="img/nft3.jpg" alt="" />
-   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad at aut commodi doloremque,
+        
+					<div className="main-lottery main-teams">
+						<h1 class="lol-title">Team</h1>
+						<div class="teams-boxes">
+							<div class="teams-item">
+								<img class="person-img" src={img_1} alt="" />
+								<h3>Nicolas</h3>
+								<h4>Toulouse, France</h4>
+								<h5>CEO & Co-founder</h5>
+								<div class="all-img-social-medias"></div>
+							</div>
+							<div class="teams-item">
+								<img class="person-img" src={img_2} alt="" />
+								<h3>Nicolas</h3>
+								<h4>Toulouse, France</h4>
+								<h5>CEO & Co-founder</h5>
+								<div class="all-img-social-medias"></div>
+							</div>
+							<div class="teams-item">
+								<img class="person-img" src={img_3} alt="" />
+								<h3>Nicolas</h3>
+								<h4>Toulouse, France</h4>
+								<h5>CEO & Co-founder</h5>
+								<div class="all-img-social-medias"></div>
+							</div>
+							<div class="teams-item">
+								<img class="person-img" src={img_4} alt="" />
+								<h3>Nicolas</h3>
+								<h4>Toulouse, France</h4>
+								<h5>CEO & Co-founder</h5>
+								<div class="all-img-social-medias"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</section>
+		<section style={{ background: '#282B35' }}>
+			<div className="container">
+				<footer>
+					<div className="footer">
+						<span>
+							<a href="https://twitter.com/LolCat_finance/">
+								<img src={twitter} alt="" />
+							</a>
+							<a href="https://t.me/lol_cat_en/">
+								<img src={telegram} alt="" />
+							</a>
+							<a href="https://github.com/LolCatFInance/">
+								<img src={github} alt="" />
+							</a>
+							<a href="https://medium.com/@Lolcat/">
+								<img src={medium} alt="" />
+							</a>
+						</span>
+						<h5>Desiged With Love By LolCat Team And Community</h5>
+					</div>
+				</footer>
+			</div>
+		</section>
+		<div>
+			<div class="nft-item" id="NftPlans">
+				<h3>NFT Names</h3>
+				<img src="img/nft3.jpg" alt="" />
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad at aut commodi doloremque,
    doloribus eaque eius eum eveniet excepturi exercitationem inventore, laborum nobis non
    nostrum perferendis quae quia ut voluptates.</p>
-   <div class="approved-nft">
-   <div class="amount-of-ltoken">
-   <div class="nft-line"></div>
-   <h5 id="totalprice">300 ltoken</h5>
-   </div>
-   <div class="buy-button">
-   <button class="btn approve-btn" id="approvefornft">approve</button>
-   <button class="btn buy-btn-2" id="lnftbuy">buy</button>
-   </div>
-   </div>
-   </div>
-   </div>
-</header>
+				<div class="approved-nft">
+					<div class="amount-of-ltoken">
+						<div class="nft-line"></div>
+						<h5 id="totalprice">300 ltoken</h5>
+					</div>
+					<div class="buy-button">
+						<button class="btn approve-btn" id="approvefornft">approve</button>
+						<button class="btn buy-btn-2" id="lnftbuy">buy</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
 </div>
 );
 }
