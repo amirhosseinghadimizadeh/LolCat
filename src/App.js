@@ -510,7 +510,8 @@ return (
          <div className="line-between" />
          {/* fixed apy stake */}
          {/* lol boxes */}
-         <h1 class="lol-title">Lcat Token Features</h1>
+        <div className="main-lottery">
+        <h1 class="lol-title">Lcat Token Features</h1>
          <div class="all-lol-box">
          <div class="lol-item">
          <img src={icon_piggy} alt="" />
@@ -543,6 +544,7 @@ return (
          </p>
          </div>
          </div>
+        </div>
          {/* teams */}
          <h1 class="lol-title">POWERED BY A TEAM</h1>
          <div class="teams-boxes">
