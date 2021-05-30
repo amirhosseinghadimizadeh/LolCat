@@ -7,6 +7,10 @@
     background: #141416;
 }
 
+body {
+    background-color: #141416;
+}
+
 /* header */
 #header {
     display: flex;
@@ -652,3 +656,131 @@
 }
 
 
+/* lol boxes */
+
+.lol-title {
+    text-align: center;
+    font-weight: 900;
+    font-size: 26px;
+    margin-bottom: 5rem;
+    letter-spacing: 1px;
+}
+
+.all-lol-box {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1.8rem;
+    margin-bottom: 8rem;
+}
+
+.lol-item {
+    background-color: #10122d;
+    padding: 30px;
+    border: 5px;
+}
+
+.lol-item h3 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.lol-item p {
+    color: #a2b4d2 !important;
+    line-height: 1.7rem;
+    font-size: 15px;
+}
+
+@media screen and (max-width: 1001px) {
+    .all-lol-box {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 1.8rem;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .all-lol-box {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 1.8rem;
+    }
+}
+
+
+/* teams */
+
+.teams-boxes {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-bottom: 7rem;
+    grid-gap: 2rem;
+}
+
+.teams-item {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.teams-item .person-img {
+    border-radius: 50%;
+    width: 65%;
+}
+
+.teams-item h3 {
+    padding-top: 20px;
+    font-size: 1.125rem !important;
+    font-weight: 400;
+    margin-bottom: 1px;
+}
+
+.teams-item h4 {
+    color: #eff6ff;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.teams-item h5 {
+    color: #9947ff;
+    font-size: 15px;
+    margin-top: 11px;
+}
+
+.all-img-social-medias {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-top: 20px;
+}
+
+.teams-item .person-social-network {
+    width: 15px;
+}
+.teams-item .person-social-network:first-child {
+    margin-top: 2px;
+}
+
+.teams-item a {
+    margin: 0 8px;
+}
+
+
+@media screen and (max-width: 769px) {
+    .teams-boxes {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin-bottom: 7rem;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .teams-boxes {
+        display: grid;
+        grid-template-columns: 1fr;
+        margin-bottom: 7rem;
+    }
+}

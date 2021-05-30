@@ -28,133 +28,134 @@ let Lstoreinstance;
 const MySwal = withReactContent(Swal);
 var lastnftinfo;
 var lastlotterytime;
-var lnftcontract="0x8bc6bB71e93FBC2f6B8D6Ca583c0d6289CEd0BB5";
-var tokencontract="0xd5BDc03417e26c5697261D079b93042d0c0079E1";
-var Lstorecontract="0xc860F3fd2ef97Aa18EC44d06Ce1562e5B48AfD2f";
-var Llotterycontract="0xF3F14E091D852864ACaCA97A2fa6661A209eB513";
+var lnftcontract = "0x8bc6bB71e93FBC2f6B8D6Ca583c0d6289CEd0BB5";
+var tokencontract = "0xd5BDc03417e26c5697261D079b93042d0c0079E1";
+var Lstorecontract = "0xc860F3fd2ef97Aa18EC44d06Ce1562e5B48AfD2f";
+var Llotterycontract = "0xF3F14E091D852864ACaCA97A2fa6661A209eB513";
 function secsToTime(secs) {
-    let d = secs / 8.64e4 | 0;
-    let H = (secs % 8.64e4) / 3.6e3 | 0;
-    let m = (secs % 3.6e3)  / 60 | 0;
-    let s = secs % 60;
-    let z = n=> (n < 10? '0' : '') + n;
-    return `${d}:${z(H)}:${z(m)}:${z(s)}`
-  }
-  function LotteryCountr(){
-	  lastlotterytime=lastlotterytime-1;
-	  document.getElementById('lotterytime').innerHTML=secsToTime(lastlotterytime);
-  }
-async function fetchlotteryinfo(){
-  const w3=new Web3('https://rinkeby.infura.io/v3/ee3cd30dc6ea4f86a6b44bc008a1a27b');
-  var Llottery=await new w3.eth.Contract(Llotteryabi,Llotterycontract).methods;
-  var RoundNumber=await Llottery.RoundCount().call();
-  var Roundinfo=await Llottery.Lottery(RoundNumber).call();
-  var TotalTickets=Roundinfo['4'];
-  var TicketPrice=Roundinfo['5'];
-  var RemainedTime=Roundinfo[2]-(Date.now()/1000|0);
-  var LotteryWinner=Roundinfo['9'];
+  let d = secs / 8.64e4 | 0;
+  let H = (secs % 8.64e4) / 3.6e3 | 0;
+  let m = (secs % 3.6e3) / 60 | 0;
+  let s = secs % 60;
+  let z = n => (n < 10 ? '0' : '') + n;
+  return `${d}:${z(H)}:${z(m)}:${z(s)}`
+}
+function LotteryCountr() {
+  lastlotterytime = lastlotterytime - 1;
+  document.getElementById('lotterytime').innerHTML = secsToTime(lastlotterytime);
+}
+async function fetchlotteryinfo() {
+  const w3 = new Web3('https://rinkeby.infura.io/v3/ee3cd30dc6ea4f86a6b44bc008a1a27b');
+  var Llottery = await new w3.eth.Contract(Llotteryabi, Llotterycontract).methods;
+  var RoundNumber = await Llottery.RoundCount().call();
+  var Roundinfo = await Llottery.Lottery(RoundNumber).call();
+  var TotalTickets = Roundinfo['4'];
+  var TicketPrice = Roundinfo['5'];
+  var RemainedTime = Roundinfo[2] - (Date.now() / 1000 | 0);
+  var LotteryWinner = Roundinfo['9'];
   var UserTotalTicket;
-  if(provider==null){
-	  UserTotalTicket='0';
+  if (provider == null) {
+    UserTotalTicket = '0';
   }
-  else{
-	  UserTotalTicket=await Llottery.UserTotalTickets(myaddress).call();
+  else {
+    UserTotalTicket = await Llottery.UserTotalTickets(myaddress).call();
   }
-  if(LotteryWinner=='0x0000000000000000000000000000000000000000'){
-	LotteryWinner="Lottery Ongoing..."
+  if (LotteryWinner == '0x0000000000000000000000000000000000000000') {
+    LotteryWinner = "Lottery Ongoing..."
   }
-  if(RemainedTime<=0){
-	  RemainedTime=0;
+  if (RemainedTime <= 0) {
+    RemainedTime = 0;
   }
-document.getElementById('lotteryround').innerHTML=RoundNumber;
-document.getElementById('totaltickets').innerHTML=TotalTickets;
-document.getElementById('ticketprice').innerHTML=w3.utils.fromWei(TicketPrice) +" lcat";
-document.getElementById('lotterytime').innerHTML=secsToTime(RemainedTime);
-document.getElementById('lotterywinner').innerHTML=LotteryWinner.substr(0,4)+"..."+LotteryWinner.substr(38,42);;
-document.getElementById('lotterywinner').href="https://rinkeby.etherscan.io/token/"+tokencontract+"?a="+LotteryWinner;
-document.getElementById('usertickets').innerHTML=UserTotalTicket+" Tickets";
-lastlotterytime=RemainedTime;
-document.getElementById('doparticipate').onclick=function(){participateLottery(document.getElementById('participatevalue').value,w3.utils.fromWei(TicketPrice))};
+  document.getElementById('lotteryround').innerHTML = RoundNumber;
+  document.getElementById('totaltickets').innerHTML = TotalTickets;
+  document.getElementById('ticketprice').innerHTML = w3.utils.fromWei(TicketPrice) + " lcat";
+  document.getElementById('lotterytime').innerHTML = secsToTime(RemainedTime);
+  document.getElementById('lotterywinner').innerHTML = LotteryWinner.substr(0, 4) + "..." + LotteryWinner.substr(38, 42);;
+  document.getElementById('lotterywinner').href = "https://rinkeby.etherscan.io/token/" + tokencontract + "?a=" + LotteryWinner;
+  document.getElementById('usertickets').innerHTML = UserTotalTicket + " Tickets";
+  lastlotterytime = RemainedTime;
+  document.getElementById('doparticipate').onclick = function () { participateLottery(document.getElementById('participatevalue').value, w3.utils.fromWei(TicketPrice)) };
 
 
 }
-async function participateLottery(totalticket,ticketprice){
- try{
-	    if(provider==null){
+async function participateLottery(totalticket, ticketprice) {
+  try {
+    if (provider == null) {
       console.log("no provider for approve")
-      doalert("warning","Connect Wallet!")
-      
-     }
-   else{
-	if(totalticket>200){
-		totalticket=200;
-	}
-	var Llottery=await new web3.eth.Contract(Llotteryabi,Llotterycontract).methods;
-	Tokeninstance=await new web3.eth.Contract(tokenabi,tokencontract).methods;
-	var allowance=await Tokeninstance.allowance(myaddress,Llotterycontract).call({from:myaddress});
-	var TotalAmount=totalticket*ticketprice;
-	if(web3.utils.toWei(TotalAmount.toString())>allowance){
-	   approveall(Llotterycontract,web3.utils.toWei(TotalAmount.toString()));
-	}
-	else{
-	  doalert('info','sign tranasction to Buy'+" "+totalticket+" Ticket");
-	  await Llottery.ParticipateLottery(web3.utils.toWei(TotalAmount.toString())).send({from:myaddress}).then(function(response){
-		  doalert("success",totalticket+" Tickets Purchased.");
-	  });
-	  
-	}
-   }
+      doalert("warning", "Connect Wallet!")
 
- } finally{}
+    }
+    else {
+      if (totalticket > 200) {
+        totalticket = 200;
+      }
+      var Llottery = await new web3.eth.Contract(Llotteryabi, Llotterycontract).methods;
+      Tokeninstance = await new web3.eth.Contract(tokenabi, tokencontract).methods;
+      var allowance = await Tokeninstance.allowance(myaddress, Llotterycontract).call({ from: myaddress });
+      var TotalAmount = totalticket * ticketprice;
+      if (web3.utils.toWei(TotalAmount.toString()) > allowance) {
+        approveall(Llotterycontract, web3.utils.toWei(TotalAmount.toString()));
+      }
+      else {
+        doalert('info', 'sign tranasction to Buy' + " " + totalticket + " Ticket");
+        await Llottery.ParticipateLottery(web3.utils.toWei(TotalAmount.toString())).send({ from: myaddress }).then(function (response) {
+          doalert("success", totalticket + " Tickets Purchased.");
+        });
+
+      }
+    }
+
+  } finally { }
 }
 function sleep(milliseconds) {
-	const date = Date.now();
-	let currentDate = null;
-	do {
-	  currentDate = Date.now();
-	} while (currentDate - date < milliseconds);
-  }
-  
+  const date = Date.now();
+  let currentDate = null;
+  do {
+    currentDate = Date.now();
+  } while (currentDate - date < milliseconds);
+}
+
 async function fetchAccountData() {
   var ShowBalance = document.getElementsByClassName("btnss1");
-  var ShowAddress =document.getElementsByClassName("btnss2");
-  if(provider==null){
-   ShowBalance[0].innerHTML=0+"Lcat";
-   ShowAddress[0].innerHTML="Connect"
+  var ShowAddress = document.getElementsByClassName("btnss2");
+  if (provider == null) {
+    ShowBalance[0].innerHTML = 0 + "Lcat";
+    ShowAddress[0].innerHTML = "Connect"
   }
-  else{
-  
-  
-  // Get a Web3 instance for the wallet
-  web3 = new Web3(provider);
-  Tokeninstance=new web3.eth.Contract(tokenabi,tokencontract).methods;
-  Lnftinstance=new web3.eth.Contract(lnftabi,lnftcontract).methods;
-  Lstoreinstance=new web3.eth.Contract(lstoreabi,Lstorecontract).methods;
-  console.log("Web3 instance is", web3);
+  else {
 
-  // Get connected chain id from Ethereum node
-  const chainId = await web3.eth.getChainId();
-  // Load chain information over an HTTP API
- 
-  // Get list of accounts of the connected wallet
-  const accounts = await web3.eth.getAccounts();
 
-  // MetaMask does not give you all accounts, only the selected account
-  console.log("Got accounts", accounts);
-  var selectedAccount = accounts[0];
-  myaddress=selectedAccount;
-  ShowAddress[0].innerHTML=selectedAccount.substr(0,4)+"..."+selectedAccount.substr(38,42);
-  // Go through all accounts and get their ETH balance
-  const rowResolvers = accounts.map(async (address) => {
-    const balance = await web3.eth.getBalance(address);
-    const ethBalance = web3.utils.fromWei(balance, "ether");
-    const humanFriendlyBalance = parseFloat(ethBalance).toFixed(4);
-    const balanceoftoken=await Tokeninstance.balanceOf(myaddress).call();
-    const tokenBalance =await web3.utils.fromWei(balanceoftoken, "ether");
-    const humanFriendlyBalancetoken =await parseFloat(tokenBalance).toFixed(2);
-    ShowBalance[0].innerHTML=humanFriendlyBalancetoken+"Lcat";
-    // Fill in the templated row and put in the document
-  })};
+    // Get a Web3 instance for the wallet
+    web3 = new Web3(provider);
+    Tokeninstance = new web3.eth.Contract(tokenabi, tokencontract).methods;
+    Lnftinstance = new web3.eth.Contract(lnftabi, lnftcontract).methods;
+    Lstoreinstance = new web3.eth.Contract(lstoreabi, Lstorecontract).methods;
+    console.log("Web3 instance is", web3);
+
+    // Get connected chain id from Ethereum node
+    const chainId = await web3.eth.getChainId();
+    // Load chain information over an HTTP API
+
+    // Get list of accounts of the connected wallet
+    const accounts = await web3.eth.getAccounts();
+
+    // MetaMask does not give you all accounts, only the selected account
+    console.log("Got accounts", accounts);
+    var selectedAccount = accounts[0];
+    myaddress = selectedAccount;
+    ShowAddress[0].innerHTML = selectedAccount.substr(0, 4) + "..." + selectedAccount.substr(38, 42);
+    // Go through all accounts and get their ETH balance
+    const rowResolvers = accounts.map(async (address) => {
+      const balance = await web3.eth.getBalance(address);
+      const ethBalance = web3.utils.fromWei(balance, "ether");
+      const humanFriendlyBalance = parseFloat(ethBalance).toFixed(4);
+      const balanceoftoken = await Tokeninstance.balanceOf(myaddress).call();
+      const tokenBalance = await web3.utils.fromWei(balanceoftoken, "ether");
+      const humanFriendlyBalancetoken = await parseFloat(tokenBalance).toFixed(2);
+      ShowBalance[0].innerHTML = humanFriendlyBalancetoken + "Lcat";
+      // Fill in the templated row and put in the document
+    })
+  };
 }
 const providerOptions = {
   walletconnect: {
@@ -168,7 +169,7 @@ const providerOptions = {
       }
     }
   }
-  ,  torus: {
+  , torus: {
     package: Torus, // required
     options: {
       networkParams: {
@@ -184,7 +185,7 @@ const providerOptions = {
 };
 
 const web3Modal = new Web3Modal({
-   disableInjectedProvider: false ,
+  disableInjectedProvider: false,
   cacheProvider: true, // optional
   theme: {
     background: "rgb(39, 49, 56)",
@@ -196,8 +197,8 @@ const web3Modal = new Web3Modal({
   providerOptions // required
 });
 //var provider;
-async function DisconnectWallet(){
-  if(provider.close) {
+async function DisconnectWallet() {
+  if (provider.close) {
     await provider.close();
 
     // If the cached provider is not cleared,
@@ -206,232 +207,233 @@ async function DisconnectWallet(){
     // Depending on your use case you may want or want not his behavir.
     await web3Modal.clearCachedProvider();
     provider = null;
-     fetchAccountData();
+    fetchAccountData();
   }
 
 }
 async function ConnectWallet() {
   try {
-   if(provider==null){
-    provider = await web3Modal.connect();
-    doalert('success',"Wallet Connected Successfully")
-    fetchAccountData();
-    provider.on("accountsChanged", (accounts) => {
+    if (provider == null) {
+      provider = await web3Modal.connect();
+      doalert('success', "Wallet Connected Successfully")
       fetchAccountData();
-    });
-  
-    // Subscribe to chainId change
-    provider.on("chainChanged", (chainId) => {
-      fetchAccountData();
-    });
-  
-    // Subscribe to networkId change
-    provider.on("networkChanged", (networkId) => {
-      fetchAccountData();
-    });
-   }
-    else{
+      provider.on("accountsChanged", (accounts) => {
+        fetchAccountData();
+      });
+
+      // Subscribe to chainId change
+      provider.on("chainChanged", (chainId) => {
+        fetchAccountData();
+      });
+
+      // Subscribe to networkId change
+      provider.on("networkChanged", (networkId) => {
+        fetchAccountData();
+      });
+    }
+    else {
       DisconnectWallet();
     }
-  } catch(e) {
+  } catch (e) {
     console.log("Could not get a wallet connection", e);
     return;
-  }}
-  var priceinfo=[];
-  var idinfo=[];
-  async function LoadNft(){
-   // var priceinfo=[];
-    //var idinfo=[];
-    const w3=new Web3('https://data-seed-prebsc-1-s1.binance.org:8545/');
-    Lstoreinstance=new w3.eth.Contract(lstoreabi,Lstorecontract).methods;
-   var totalitems=await Lstoreinstance.TotalItems().call();
-   var i;
-   for (i = 0; i < totalitems; i++) {
-    
-    var Item=await new w3.eth.Contract(lstoreabi,Lstorecontract).methods.Items(totalitems-1-i).call();
+  }
+}
+var priceinfo = [];
+var idinfo = [];
+async function LoadNft() {
+  // var priceinfo=[];
+  //var idinfo=[];
+  const w3 = new Web3('https://data-seed-prebsc-1-s1.binance.org:8545/');
+  Lstoreinstance = new w3.eth.Contract(lstoreabi, Lstorecontract).methods;
+  var totalitems = await Lstoreinstance.TotalItems().call();
+  var i;
+  for (i = 0; i < totalitems; i++) {
+
+    var Item = await new w3.eth.Contract(lstoreabi, Lstorecontract).methods.Items(totalitems - 1 - i).call();
     console.log(Item[1]);
-    if(Item[3]==false){
+    if (Item[3] == false) {
       await Getnftinfo(Item[1]);
-       await LoadNftPlans(Item[1],Item[2]);
-       //document.getElementsByClassName("nft"+Item[1])[0].onclick=function(){alert(Item[2])};
-        //document.getElementsByClassName('nft'+Item[1])[0].children[3].children[1].children[0].onclick=function(){alert(Item[2])};
-       //document.getElementsByClassName('nft'+Item[1])[0].onclick=function(){alert(Item[2])};//
-      priceinfo.push(Item[2]);idinfo.push(Item[1]);
+      await LoadNftPlans(Item[1], Item[2]);
+      //document.getElementsByClassName("nft"+Item[1])[0].onclick=function(){alert(Item[2])};
+      //document.getElementsByClassName('nft'+Item[1])[0].children[3].children[1].children[0].onclick=function(){alert(Item[2])};
+      //document.getElementsByClassName('nft'+Item[1])[0].onclick=function(){alert(Item[2])};//
+      priceinfo.push(Item[2]); idinfo.push(Item[1]);
     }
   }
   await setinfo();
+}
+async function setinfo() {
+  const w3 = new Web3('https://rinkeby.infura.io/v3/ee3cd30dc6ea4f86a6b44bc008a1a27b');
+  Lstoreinstance = new w3.eth.Contract(lstoreabi, Lstorecontract).methods;
+  var totalnft = idinfo.length;
+  var i = 0;
+  Lnftinstance = await new w3.eth.Contract(lstoreabi, Lstorecontract).methods;
+  for (i = 0; i < totalnft; i++) {
+    let input = i;
+    var getitemid = await Lnftinstance.NftToItemId(idinfo[i]).call({ from: myaddress });
+    document.getElementsByClassName("nft" + idinfo[i])[0].addEventListener("click", function () { approve(priceinfo[`${input}`]) });
+    document.getElementsByClassName("buynft" + idinfo[i])[0].addEventListener("click", function () { Buynft(`${getitemid}`, priceinfo[`${input}`]) });
+    console.log(`${input}`, priceinfo[`${input}`], "hi iam res");
   }
-  async function setinfo(){
-    const w3=new Web3('https://rinkeby.infura.io/v3/ee3cd30dc6ea4f86a6b44bc008a1a27b');
-    Lstoreinstance=new w3.eth.Contract(lstoreabi,Lstorecontract).methods;
-    var totalnft=idinfo.length;
-    var i=0;
-    Lnftinstance=await new w3.eth.Contract(lstoreabi,Lstorecontract).methods;
-    for(i=0;i<totalnft;i++){
-      let input=i;
-      var getitemid=await Lnftinstance.NftToItemId(idinfo[i]).call({from:myaddress});
-      document.getElementsByClassName("nft"+idinfo[i])[0].addEventListener("click", function() {approve(priceinfo[`${input}`])});
-      document.getElementsByClassName("buynft"+idinfo[i])[0].addEventListener("click", function() {Buynft(`${getitemid}`,priceinfo[`${input}`])});
-      console.log(`${input}`,priceinfo[`${input}`],"hi iam res");
+}
+function doalert(type, message) {
+  const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-start',
+    showConfirmButton: false,
+    timer: 6000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
     }
-  }
-  function doalert(type,message){
-    const Toast = Swal.mixin({
-        toast: true,
-        position: 'top-start',
-        showConfirmButton: false,
-        timer: 6000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-          toast.addEventListener('mouseenter', Swal.stopTimer)
-          toast.addEventListener('mouseleave', Swal.resumeTimer)
-        }
-      })
-      
-      Toast.fire({
-        icon: type,
-        title: message
-      })
-    
-  }
-async function Getnftinfo(tokenid){
+  })
+
+  Toast.fire({
+    icon: type,
+    title: message
+  })
+
+}
+async function Getnftinfo(tokenid) {
   const request = new XMLHttpRequest();
-  const w3=new Web3('https://rinkeby.infura.io/v3/ee3cd30dc6ea4f86a6b44bc008a1a27b'); 
-  var metadata=await new w3.eth.Contract(lnftabi,lnftcontract).methods.tokenURI(tokenid).call();
+  const w3 = new Web3('https://rinkeby.infura.io/v3/ee3cd30dc6ea4f86a6b44bc008a1a27b');
+  var metadata = await new w3.eth.Contract(lnftabi, lnftcontract).methods.tokenURI(tokenid).call();
   var result;
-request.open('GET', metadata); 
-request.send();
- 
-request.onload = () => { 
-  if (request.status === 200) { 
-    console.log("Success"); // So extract data from json and create table 
-     
-    //Extracting data 
-    var name = JSON.parse(request.response).name; 
-    var description = JSON.parse(request.response).description; 
-    var externalurl= JSON.parse(request.response).external_url; ;
-    var image= JSON.parse(request.response).image; 
-  console.log(name);
-  console.log(description);
-  console.log(externalurl);
-  console.log(image);
-  result=new Object();
-  result[0]=name;
-  result[1]=description;
-  result[2]=externalurl;
-  result[3]=image;
-  console.log(result);
-  lastnftinfo=result;
-  return result;
-  
-  }  
- 
-}; 
- 
-request.onerror = () => { 
-  console.log("error is happend to load nft metadata from ipfs"); 
-}; 
-}
-async function approve(amount){
-try{
-  if(provider==null){
-   console.log("no provider for approve")
-   doalert("warning","Connect Wallet!")
-   
-  }
-  else{
-    Tokeninstance=new web3.eth.Contract(tokenabi,tokencontract).methods;
-    doalert("info","Sign Transaction For Approving "+web3.utils.fromWei(amount)+" Lcat.")
-    Tokeninstance.approve(Lstorecontract,amount).send({from:myaddress}).then(function(response){
-      console.log("approve completed");
-      doalert("success",web3.utils.fromWei(amount)+" Lcat"+" Approved.");
-    });
-  
-}
-}
-finally{}
-}
-async function approveall(contract,amount){
-  try{
-    if(provider==null){
-     console.log("no provider for approve")
-     doalert("warning","Connect Wallet!")
-     
+  request.open('GET', metadata);
+  request.send();
+
+  request.onload = () => {
+    if (request.status === 200) {
+      console.log("Success"); // So extract data from json and create table 
+
+      //Extracting data 
+      var name = JSON.parse(request.response).name;
+      var description = JSON.parse(request.response).description;
+      var externalurl = JSON.parse(request.response).external_url;;
+      var image = JSON.parse(request.response).image;
+      console.log(name);
+      console.log(description);
+      console.log(externalurl);
+      console.log(image);
+      result = new Object();
+      result[0] = name;
+      result[1] = description;
+      result[2] = externalurl;
+      result[3] = image;
+      console.log(result);
+      lastnftinfo = result;
+      return result;
+
     }
-    else{
-      Tokeninstance=new web3.eth.Contract(tokenabi,tokencontract).methods;
-      doalert("info","Sign Transaction For Approving "+web3.utils.fromWei(amount)+" Lcat.")
-      Tokeninstance.approve(contract,amount).send({from:myaddress}).then(function(response){
-        console.log("approve completed");
-        doalert("success",web3.utils.fromWei(amount)+" Lcat"+" Approved.");
-      });
-    
-  }
-  }
-  finally{}
-  }
-async function Buynft(itemid,nftprice){
-  try{
-    if(provider==null){
+
+  };
+
+  request.onerror = () => {
+    console.log("error is happend to load nft metadata from ipfs");
+  };
+}
+async function approve(amount) {
+  try {
+    if (provider == null) {
       console.log("no provider for approve")
-      doalert("warning","Connect Wallet!")
-      
-     }
-     else{
-       doalert('info','sign transaction to purchase nft')
-       Tokeninstance=await new web3.eth.Contract(tokenabi,tokencontract).methods;
-       Lnftinstance=await new web3.eth.Contract(lstoreabi,Lstorecontract).methods;
-       var allowance=await Tokeninstance.allowance(myaddress,Lstorecontract).call({from:myaddress});
-      if(allowance<nftprice){
+      doalert("warning", "Connect Wallet!")
+
+    }
+    else {
+      Tokeninstance = new web3.eth.Contract(tokenabi, tokencontract).methods;
+      doalert("info", "Sign Transaction For Approving " + web3.utils.fromWei(amount) + " Lcat.")
+      Tokeninstance.approve(Lstorecontract, amount).send({ from: myaddress }).then(function (response) {
+        console.log("approve completed");
+        doalert("success", web3.utils.fromWei(amount) + " Lcat" + " Approved.");
+      });
+
+    }
+  }
+  finally { }
+}
+async function approveall(contract, amount) {
+  try {
+    if (provider == null) {
+      console.log("no provider for approve")
+      doalert("warning", "Connect Wallet!")
+
+    }
+    else {
+      Tokeninstance = new web3.eth.Contract(tokenabi, tokencontract).methods;
+      doalert("info", "Sign Transaction For Approving " + web3.utils.fromWei(amount) + " Lcat.")
+      Tokeninstance.approve(contract, amount).send({ from: myaddress }).then(function (response) {
+        console.log("approve completed");
+        doalert("success", web3.utils.fromWei(amount) + " Lcat" + " Approved.");
+      });
+
+    }
+  }
+  finally { }
+}
+async function Buynft(itemid, nftprice) {
+  try {
+    if (provider == null) {
+      console.log("no provider for approve")
+      doalert("warning", "Connect Wallet!")
+
+    }
+    else {
+      doalert('info', 'sign transaction to purchase nft')
+      Tokeninstance = await new web3.eth.Contract(tokenabi, tokencontract).methods;
+      Lnftinstance = await new web3.eth.Contract(lstoreabi, Lstorecontract).methods;
+      var allowance = await Tokeninstance.allowance(myaddress, Lstorecontract).call({ from: myaddress });
+      if (allowance < nftprice) {
         approve(nftprice);
       }
-      else{
-         await Lnftinstance.BuyNft(itemid).send({from:myaddress}).then(function(response){
-          doalert("success","Nft Purchase Completed.");
-         });
+      else {
+        await Lnftinstance.BuyNft(itemid).send({ from: myaddress }).then(function (response) {
+          doalert("success", "Nft Purchase Completed.");
+        });
       }
-     }
-  } catch(error){
-    doalert("error","Nft Purchanse Faild.");
+    }
+  } catch (error) {
+    doalert("error", "Nft Purchanse Faild.");
   }
 }
-const w3=new Web3('https://rinkeby.infura.io/v3/ee3cd30dc6ea4f86a6b44bc008a1a27b'); 
-var totaladd=0;
-async function LoadNftPlans(tokenid,tokenprice){
+const w3 = new Web3('https://rinkeby.infura.io/v3/ee3cd30dc6ea4f86a6b44bc008a1a27b');
+var totaladd = 0;
+async function LoadNftPlans(tokenid, tokenprice) {
   await Getnftinfo(tokenid);
-  var clone=await document.getElementById('NftPlans');
-  var itemclone= clone.cloneNode(true);
-  if(totaladd==0){
+  var clone = await document.getElementById('NftPlans');
+  var itemclone = clone.cloneNode(true);
+  if (totaladd == 0) {
     await document.getElementById('NftPlans').remove();
   }
   document.getElementById('NftContainer').appendChild(itemclone);
-  document.getElementById('NftPlans').children[0].innerHTML=lastnftinfo[0]+"("+tokenid+")";
-  document.getElementById('NftPlans').children[1].src=lastnftinfo[3];
-  document.getElementById('NftPlans').children[2].innerHTML=lastnftinfo[1];
-  document.getElementById('totalprice').innerHTML=w3.utils.fromWei(tokenprice)+"Lcat";
+  document.getElementById('NftPlans').children[0].innerHTML = lastnftinfo[0] + "(" + tokenid + ")";
+  document.getElementById('NftPlans').children[1].src = lastnftinfo[3];
+  document.getElementById('NftPlans').children[2].innerHTML = lastnftinfo[1];
+  document.getElementById('totalprice').innerHTML = w3.utils.fromWei(tokenprice) + "Lcat";
   //document.getElementById('approvefornft').onclick=function(){console.log(tokenprice)};
-  var forapprove=document.getElementById('approvefornft');
-  forapprove.className="btn buy-btn-1"+" "+"approve-btn"+" "+"btn"+" "+"nft"+tokenid;
-  var ibuynft=document.getElementById('lnftbuy');
-  ibuynft.className="btn buy-btn-2"+" "+"buynft"+tokenid;
-  console.log(tokenid+"hahaha"+tokenprice);
-  console.log(totaladd+"inforound");
+  var forapprove = document.getElementById('approvefornft');
+  forapprove.className = "btn buy-btn-1" + " " + "approve-btn" + " " + "btn" + " " + "nft" + tokenid;
+  var ibuynft = document.getElementById('lnftbuy');
+  ibuynft.className = "btn buy-btn-2" + " " + "buynft" + tokenid;
+  console.log(tokenid + "hahaha" + tokenprice);
+  console.log(totaladd + "inforound");
   totaladd++;
 }
-function comingsoon(){
-	doalert('info',"coming soon...")
+function comingsoon() {
+  doalert('info', "coming soon...")
 }
 function App() {
   return (
 
     <div className="App">
-             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"/>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com"/>
-    <link href="https://fonts.googleapis.com/css2?family=B612&display=swap" rel="stylesheet"/>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+      <link rel="preconnect" href="https://fonts.gstatic.com" />
+      <link href="https://fonts.googleapis.com/css2?family=B612&display=swap" rel="stylesheet" />
       <header className="App-header">
-      <section className="section">
+        <section className="section">
           <div className="container">
             <div id="header">
               <div className="logo">
@@ -474,12 +476,12 @@ function App() {
               {/* nft plan */}
               <div class="nft-plan">
                 <h2>BUY LOL NFT AND <span class="next-line">GROW WITH US</span></h2>
-               
-                  <div class="nft-info-plan " id="NftContainer">
-             
-               
+
+                <div class="nft-info-plan " id="NftContainer">
+
+
                 </div>
-            </div>
+              </div>
               <div className="line-between" />
               {/* lottery */}
               <div className="main-lottery">
@@ -487,7 +489,7 @@ function App() {
                 <div className="all-lottery-item">
                   <div className="lottery-item">
                     <div className="pool-info">
-                      <span style={{fontWeight: 900, marginBottom: '0.4rem'}}>participate:</span>
+                      <span style={{ fontWeight: 900, marginBottom: '0.4rem' }}>participate:</span>
                     </div>
                     <div className="pool-info">
                       <span>lottery round:</span>
@@ -523,7 +525,7 @@ function App() {
                     </div>
                   </div>
                   <div className="lottery-items">
-                    <img style={{width: '100%', height: '100%', borderRadius: '5px'}} src={lotteryimage} alt="" />
+                    <img style={{ width: '100%', height: '100%', borderRadius: '5px' }} src={lotteryimage} alt="" />
                   </div>
                   <div className="lottery-item lottery-item3">
                     <div className="pool-info">
@@ -534,10 +536,96 @@ function App() {
               </div>
               <div className="line-between" />
               {/* fixed apy stake */}
-             </div>
+
+                {/* lol boxes */}
+
+                <h1 class="lol-title">LOREM IPSUM DOLOR</h1>
+
+                <div class="all-lol-box">
+                    <div class="lol-item">
+                        <img src="img/icon-piggy-bank.png" alt="">
+                        <h3>Designed for holders</h3>
+                        <p>The VLK smart contract applies a 6% fee (5 + 1 %) to each transaction and instantly splits
+                            those fees among all holders of the token. Fees are awarded by the smart contract and are
+                            immediately available in the holders balance.
+                        </p>
+                    </div>
+
+                    <div class="lol-item">
+                        <img src="img/icon-growth.png" alt="">
+                        <h3>Designed for holders</h3>
+                        <p>5% fees go to holders of the token. The percentage of fees you earn is calculated by the
+                            percentage of VLK that you own among holders.
+                            We want to reward true holders that's why we designed this system.
+                        </p>
+                    </div>
+                    <div class="lol-item">
+                        <img src="img/icon-diamond.png" alt="">
+                        <h3>Designed for holders</h3>
+                        <p>1% fees are instantly burnt. This reduces the circulating supply and ensures the Vulkania
+                            token will become an ultra scarce token.
+                        </p>
+                    </div>
+                    <div class="lol-item">
+                        <img src="img/icon-burn.png" alt="">
+                        <h3>Designed for holders</h3>
+                        <p>20% (8,000,000 VLK) of total supply is in a reserve for additional burns. Every quarter, 50%
+                            of total burnt fees will be burnt to increase scarcity of the VLK token.
+                        </p>
+                    </div>
+                </div>
+
+
+                {/* teams */}
+                <h1 class="lol-title">POWERED BY A TEAM</h1>
+
+                <div class="teams-boxes">
+                    <div class="teams-item">
+                        <img class="person-img" src="img/image.jpg" alt="">
+                        <h3>Nicolas</h3>
+                        <h4>Toulouse, France</h4>
+                        <h5>CEO & Co-founder</h5>
+                        <div class="all-img-social-medias">
+                            <a href="#"><img class="person-social-network" src="img/linkedin2.png" alt=""></a>
+                            <a href="#"><img class="person-social-network" src="img/twitter2.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="teams-item">
+                        <img class="person-img" src="img/image2.jpg" alt="">
+                        <h3>Nicolas</h3>
+                        <h4>Toulouse, France</h4>
+                        <h5>CEO & Co-founder</h5>
+                        <div class="all-img-social-medias">
+                            <a href="#"><img class="person-social-network" src="img/linkedin2.png" alt=""></a>
+                            <a href="#"><img class="person-social-network" src="img/twitter2.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="teams-item">
+                        <img class="person-img" src="img/image3.jpg" alt="">
+                        <h3>Nicolas</h3>
+                        <h4>Toulouse, France</h4>
+                        <h5>CEO & Co-founder</h5>
+                        <div class="all-img-social-medias">
+                            <a href="#"><img class="person-social-network" src="img/linkedin2.png" alt=""></a>
+                            <a href="#"><img class="person-social-network" src="img/twitter2.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="teams-item">
+                        <img class="person-img" src="img/image4.jpg" alt="">
+                        <h3>Nicolas</h3>
+                        <h4>Toulouse, France</h4>
+                        <h5>CEO & Co-founder</h5>
+                        <div class="all-img-social-medias">
+                            <div><a href="#"><img class="person-social-network" src="img/linkedin2.png" alt=""></a>
+                            </div>
+                            <div><a href="#"><img class="person-social-network" src="img/twitter2.png" alt=""></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
           </section>
         </section>
-        <section style={{background: '#282B35'}}>
+        <section style={{ background: '#282B35' }}>
           <div className="container">
             <footer>
               <div className="footer">
@@ -551,26 +639,26 @@ function App() {
               </div>
             </footer>
           </div>
-      
+
         </section>
         <div>
-        <div class="nft-item" id="NftPlans">
-                        <h3>NFT Names</h3>
-                        <img src="img/nft3.jpg" alt=""/>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad at aut commodi doloremque,
-                            doloribus eaque eius eum eveniet excepturi exercitationem inventore, laborum nobis non
+          <div class="nft-item" id="NftPlans">
+            <h3>NFT Names</h3>
+            <img src="img/nft3.jpg" alt="" />
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad at aut commodi doloremque,
+            doloribus eaque eius eum eveniet excepturi exercitationem inventore, laborum nobis non
                             nostrum perferendis quae quia ut voluptates.</p>
-                        <div class="approved-nft">
-                            <div class="amount-of-ltoken">
-                                <div class="nft-line"></div>
-                                <h5 id="totalprice">300 ltoken</h5>
-                            </div>
-                            <div class="buy-button">
-                                <button class="btn approve-btn" id="approvefornft">approve</button>
-                                <button class="btn buy-btn-2" id="lnftbuy">buy</button>
-                            </div>
-                        </div>
-                    </div>
+            <div class="approved-nft">
+              <div class="amount-of-ltoken">
+                <div class="nft-line"></div>
+                <h5 id="totalprice">300 ltoken</h5>
+              </div>
+              <div class="buy-button">
+                <button class="btn approve-btn" id="approvefornft">approve</button>
+                <button class="btn buy-btn-2" id="lnftbuy">buy</button>
+              </div>
+            </div>
+          </div>
         </div>
 
       </header>
@@ -582,9 +670,9 @@ window.addEventListener('load', async () => {
   fetchAccountData();
   await sleep(3000);
   LoadNft();
-   setInterval(() => {
-	  LotteryCountr()
-   }, 1000);
+  setInterval(() => {
+    LotteryCountr()
+  }, 1000);
   await fetchlotteryinfo();
   document.querySelector("#btn-connect").addEventListener("click", ConnectWallet);
   //document.querySelector("#btn-test").addEventListener("click",LoadNft);
