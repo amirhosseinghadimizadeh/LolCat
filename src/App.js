@@ -21,10 +21,10 @@ import icon_piggy from "./img/icon-piggy-bank.png";
 import icon_growth from "./img/icon-growth.png";
 import icon_diamond from "./img/icon-diamond.png";
 import icon_burn from  "./img/icon-burn.png";
-import img_1 from "./img/image"
-import img_2 from "./img/image2"
-import img_3 from "./img/image3"
-import img_4 from "./img/image4"
+import img_1 from "./img/image.jpg"
+import img_2 from "./img/image2.jpg"
+import img_3 from "./img/image3.jpg"
+import img_4 from "./img/image4.jpg"
 import './css/maincss.css';
 import './css/resetcss.css';
 let provider;
@@ -536,7 +536,7 @@ return (
          </p>
          </div>
          <div class="lol-item">
-         <img src={iconـburn} alt="" />
+         <img src={icon_burn} alt="" />
          <h3>Designed for holders</h3>
          <p>20% (8,000,000 VLK) of total supply is in a reserve for additional burns. Every quarter, 50%
          of total burnt fees will be burnt to increase scarcity of the VLK token.
