@@ -510,7 +510,7 @@ return (
          <div className="line-between" />
          {/* fixed apy stake */}
          {/* lol boxes */}
-         <h1 class="lol-title">LOREM IPSUM DOLOR</h1>
+         <h1 class="lol-title">Lcat Token Features</h1>
          <div class="all-lol-box">
          <div class="lol-item">
          <img src={icon_piggy} alt="" />
