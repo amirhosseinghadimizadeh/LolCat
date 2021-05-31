@@ -528,7 +528,7 @@ return (
 						<div class="all-lol-box">
 							<div class="lol-item">
 								<img src={icon_piggy} alt="" />
-								<h3>CatStable</h3>
+								<h3>Cat Stable</h3>
 								<p>In The Third Stage Of Development Users Can Use Lcat And Other Valid Tokens Or Usdt As Collateral To Mint CatStable Tokens
          </p>
 							</div>
