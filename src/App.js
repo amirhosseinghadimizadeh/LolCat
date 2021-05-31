@@ -514,7 +514,7 @@ return (
 							</div>
 							<div className="lottery-item lottery-item3">
 								<div className="pool-info">
-									<span>Meow Meow Lets Try Lcat Token Lottery And Try Our Chance To Win Huge Amount Of Lcat Every Ticket Cost Randomly Every Round Between 1 to 10 Lcat And Total Reward Is 60 Percent of Total Ticket And Remained Percent Will Be Used For Token Burning And Tresury Fund </span>
+									<span>Meow Meow Lets Try Lcat Token Lottery And Try Your Chance To Win Huge Amount Of Lcat Every Ticket Cost Randomly Every Round Between 1 to 10 Lcat And Total Reward Is 60 Percent of Total Ticket And Remained Percent Will Be Used For Token Burning And Tresury Fund </span>
 								</div>
 							</div>
 						</div>
@@ -528,32 +528,26 @@ return (
 						<div class="all-lol-box">
 							<div class="lol-item">
 								<img src={icon_piggy} alt="" />
-								<h3>Designed for holders</h3>
-								<p>The VLK smart contract applies a 6% fee (5 + 1 %) to each transaction and instantly splits
-         those fees among all holders of the token. Fees are awarded by the smart contract and are
-         immediately available in the holders balance.
+								<h3>DCatStable</h3>
+								<p>In The Third Stage Of Development Users Can Use Lcat And Other Valid Tokens Or Usdt As Collateral To Mint CatStable Tokens
          </p>
 							</div>
 							<div class="lol-item">
 								<img src={icon_growth} alt="" />
-								<h3>Designed for holders</h3>
-								<p>5% fees go to holders of the token. The percentage of fees you earn is calculated by the
-         percentage of VLK that you own among holders.
-         We want to reward true holders that's why we designed this system.
+								<h3>Consistant Growth</h3>
+								<p>We BuyBack And Burn Token Consistantly Also User Can Stake Lcat For More Lcat And Also Stake Lcat For Get Another Tokens As Reward
          </p>
 							</div>
 							<div class="lol-item">
 								<img src={icon_diamond} alt="" />
-								<h3>Designed for holders</h3>
-								<p>1% fees are instantly burnt. This reduces the circulating supply and ensures the Vulkania
-         token will become an ultra scarce token.
+								<h3>Vip Features</h3>
+								<p>User Can Buy Our Vip Features Access With Lnft and Lcat Features Like Dedicated Share From Lcat Launchpad ,Higher Yeild Pools
          </p>
 							</div>
 							<div class="lol-item">
 								<img src={icon_burn} alt="" />
-								<h3>Designed for holders</h3>
-								<p>20% (8,000,000 VLK) of total supply is in a reserve for additional burns. Every quarter, 50%
-         of total burnt fees will be burnt to increase scarcity of the VLK token.
+								<h3>Token Burning</h3>
+								<p>We Burn 50 Percent Of Team Income From Lottery,Nft Store,Lcat Launchpad and Future Farms
          </p>
 							</div>
 						</div>
