@@ -579,13 +579,6 @@ return (
 								<h5>CEO & Co-founder</h5>
 								<div class="all-img-social-medias"></div>
 							</div>
-							<div class="teams-item">
-								<img class="person-img" src={img_4} alt="" />
-								<h3>Nicolas</h3>
-								<h4>Toulouse, France</h4>
-								<h5>CEO & Co-founder</h5>
-								<div class="all-img-social-medias"></div>
-							</div>
 						</div>
 					</div>
 				</div>
