@@ -327,7 +327,7 @@ doalert("warning", "Connect Wallet!")
 }
 else {
 Tokeninstance = new web3.eth.Contract(tokenabi, tokencontract).methods;
-var ApproveAmount=(amount*1.1)
+var ApproveAmount=(amount)
 doalert("info", "Sign Transaction For Approving " + ApproveAmount/1e18 + " Lcat.")
 Tokeninstance.approve(Lstorecontract, ApproveAmount.toString()).send({ from: myaddress }).then(function (response) {
 console.log("approve completed");
@@ -345,7 +345,7 @@ doalert("warning", "Connect Wallet!")
 }
 else {
 Tokeninstance = new web3.eth.Contract(tokenabi, tokencontract).methods;
-var ApproveAmount=(amount*1.1)
+var ApproveAmount=(amount)
 doalert("info", "Sign Transaction For Approving " + ApproveAmount/1e18 + " Lcat.")
 Tokeninstance.approve(contract, ApproveAmount.toString()).send({ from: myaddress }).then(function (response) {
 console.log("approve completed");
