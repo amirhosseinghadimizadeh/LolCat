@@ -331,7 +331,7 @@ var ApproveAmount=(amount*1.1)
 doalert("info", "Sign Transaction For Approving " + ApproveAmount/1e18 + " Lcat.")
 Tokeninstance.approve(Lstorecontract, ApproveAmount/1e18).send({ from: myaddress }).then(function (response) {
 console.log("approve completed");
-doalert("success", ApproveAmount/1e18 + " Lcat" + " Approved.");
+doalert("success", ApproveAmount + " Lcat" + " Approved.");
 });
 }
 }
@@ -349,7 +349,7 @@ var ApproveAmount=(amount*1.1)
 doalert("info", "Sign Transaction For Approving " + ApproveAmount/1e18 + " Lcat.")
 Tokeninstance.approve(contract, ApproveAmount/1e18).send({ from: myaddress }).then(function (response) {
 console.log("approve completed");
-doalert("success", ApproveAmount/1e18 + " Lcat" + " Approved.");
+doalert("success", ApproveAmount + " Lcat" + " Approved.");
 });
 }
 }
