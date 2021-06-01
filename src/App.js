@@ -39,7 +39,7 @@ var lastlotterytime;
 var lnftcontract = "0xf2ae43f3754643463a8f273fba3921d2d214eb06";
 var tokencontract = "0xd5BDc03417e26c5697261D079b93042d0c0079E1";
 var Lstorecontract = "0xF00c050274b0376622Bc5a9Ea0EC23C30269C2Ad";
-var Llotterycontract = "0xF3F14E091D852864ACaCA97A2fa6661A209eB513";
+var Llotterycontract = "0x8aeb3336c645cca206c6bbf5b1f5a73144a307c1";
 function secsToTime(secs) {
 let d = secs / 8.64e4 | 0;
 let H = (secs % 8.64e4) / 3.6e3 | 0;
