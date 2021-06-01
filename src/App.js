@@ -329,7 +329,7 @@ else {
 Tokeninstance = new web3.eth.Contract(tokenabi, tokencontract).methods;
 var ApproveAmount=(amount*1.1)
 doalert("info", "Sign Transaction For Approving " + ApproveAmount/1e18 + " Lcat.")
-Tokeninstance.approve(Lstorecontract, ApproveAmount.toString()).send({ from: myaddress }).then(function (response) {
+Tokeninstance.approve(Lstorecontract, ApproveAmount/1e18).send({ from: myaddress }).then(function (response) {
 console.log("approve completed");
 doalert("success", ApproveAmount/1e18 + " Lcat" + " Approved.");
 });
@@ -347,7 +347,7 @@ else {
 Tokeninstance = new web3.eth.Contract(tokenabi, tokencontract).methods;
 var ApproveAmount=(amount*1.1)
 doalert("info", "Sign Transaction For Approving " + ApproveAmount/1e18 + " Lcat.")
-Tokeninstance.approve(contract, ApproveAmount.toString()).send({ from: myaddress }).then(function (response) {
+Tokeninstance.approve(contract, ApproveAmount/1e18).send({ from: myaddress }).then(function (response) {
 console.log("approve completed");
 doalert("success", ApproveAmount/1e18 + " Lcat" + " Approved.");
 });
