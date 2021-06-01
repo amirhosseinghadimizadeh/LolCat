@@ -57,10 +57,11 @@ const w3 = new Web3('https://data-seed-prebsc-1-s1.binance.org:8545/');
 var Llottery = await new w3.eth.Contract(Llotteryabi, Llotterycontract).methods;
 var RoundNumber = await Llottery.RoundCount().call();
 var Roundinfo = await Llottery.Lottery(RoundNumber).call();
+var previous_Round_Info=await Llottery.lotteryimage(RoundNumber-1).call();
 var TotalTickets = Roundinfo['4'];
 var TicketPrice = Roundinfo['5'];
 var RemainedTime = Roundinfo[2] - (Date.now() / 1000 | 0);
-var LotteryWinner = Roundinfo['9'];
+var LotteryWinner = previous_Round_Info['9'];
 var UserTotalTicket;
 if (provider == null) {
 UserTotalTicket = '0';
@@ -326,10 +327,11 @@ doalert("warning", "Connect Wallet!")
 }
 else {
 Tokeninstance = new web3.eth.Contract(tokenabi, tokencontract).methods;
-doalert("info", "Sign Transaction For Approving " + web3.utils.fromWei(amount) + " Lcat.")
-Tokeninstance.approve(Lstorecontract, amount).send({ from: myaddress }).then(function (response) {
+var ApproveAmount=(amount*1.1)
+doalert("info", "Sign Transaction For Approving " + web3.utils.fromWei(ApproveAmount) + " Lcat.")
+Tokeninstance.approve(Lstorecontract, ApproveAmount).send({ from: myaddress }).then(function (response) {
 console.log("approve completed");
-doalert("success", web3.utils.fromWei(amount) + " Lcat" + " Approved.");
+doalert("success", web3.utils.fromWei(ApproveAmount) + " Lcat" + " Approved.");
 });
 }
 }
@@ -343,10 +345,11 @@ doalert("warning", "Connect Wallet!")
 }
 else {
 Tokeninstance = new web3.eth.Contract(tokenabi, tokencontract).methods;
-doalert("info", "Sign Transaction For Approving " + web3.utils.fromWei(amount) + " Lcat.")
-Tokeninstance.approve(contract, amount).send({ from: myaddress }).then(function (response) {
+var ApproveAmount=(amount*1.1)
+doalert("info", "Sign Transaction For Approving " + web3.utils.fromWei(ApproveAmount) + " Lcat.")
+Tokeninstance.approve(contract, ApproveAmount).send({ from: myaddress }).then(function (response) {
 console.log("approve completed");
-doalert("success", web3.utils.fromWei(amount) + " Lcat" + " Approved.");
+doalert("success", web3.utils.fromWei(ApproveAmount) + " Lcat" + " Approved.");
 });
 }
 }
