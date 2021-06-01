@@ -345,7 +345,7 @@ doalert("warning", "Connect Wallet!")
 }
 else {
 Tokeninstance = new web3.eth.Contract(tokenabi, tokencontract).methods;
-ApproveAmount=(amount*1.1)/1000000000000000000
+var ApproveAmount=(amount*1.1)/1000000000000000000
 doalert("info", "Sign Transaction For Approving " + ApproveAmount + " Lcat.")
 Tokeninstance.approve(contract, web3.utils.toWei(ApproveAmount.toString())).send({ from: myaddress }).then(function (response) {
 console.log("approve completed");
