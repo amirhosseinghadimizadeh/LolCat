@@ -214,6 +214,7 @@ doalert('success', "Wallet Connected Successfully")
 fetchAccountData();
 provider.on("accountsChanged", (accounts) => {
 fetchAccountData();
+
 });
 // Subscribe to chainId change
 provider.on("chainChanged", (chainId) => {
@@ -222,6 +223,7 @@ fetchAccountData();
 // Subscribe to networkId change
 provider.on("networkChanged", (networkId) => {
 fetchAccountData();
+await fetchlotteryinfo();
 });
 }
 else {
