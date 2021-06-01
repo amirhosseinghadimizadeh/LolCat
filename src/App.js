@@ -329,7 +329,7 @@ else {
 Tokeninstance = new web3.eth.Contract(tokenabi, tokencontract).methods;
 var ApproveAmount=(amount)
 doalert("info", "Sign Transaction For Approving " + ApproveAmount/1e18 + " Lcat.")
-Tokeninstance.approve(Lstorecontract, ApproveAmount.toString()).send({ from: myaddress }).then(function (response) {
+Tokeninstance.approve(Lstorecontract, (ApproveAmount/100*110).toString()).send({ from: myaddress }).then(function (response) {
 console.log("approve completed");
 doalert("success", ApproveAmount + " Lcat" + " Approved.");
 });
