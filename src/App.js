@@ -508,7 +508,7 @@ return (
 									<span className="earn-ltoken">lcat to participate</span>
 									<div className="unstake-button">
 										<span>
-											<input type="text" placeholder={100} id="participatevalue" />
+											<input type="text" placeholder={"10 Percent Fee Included"} id="participatevalue" />
 										</span>
 										<button className="btn none-border2" id="doparticipate">participate</button>
 									</div>
