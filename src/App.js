@@ -216,9 +216,10 @@ async function ConnectWallet() {
 try {
 if (provider == null) {
 provider = await web3Modal.connect();
-fetchlotteryinfo();
+
 doalert('success', "Wallet Connected Successfully")
 fetchAccountData();
+fetchlotteryinfo();
 provider.on("accountsChanged", (accounts) => {
 fetchAccountData();
 fetchlotteryinfo();
