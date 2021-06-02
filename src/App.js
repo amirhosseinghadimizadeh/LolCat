@@ -474,7 +474,7 @@ return (
          
 					<div class="nft-plan">
 						<h2>BUY LOL NFT AND 
-							<span class="next-line">GROW WITH US</span>
+							<span class="next-line"> GROW WITH US</span>
 						</h2>
 						<div class="nft-info-plan " id="NftContainer"></div>
 					</div>
