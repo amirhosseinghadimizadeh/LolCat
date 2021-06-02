@@ -38,7 +38,7 @@ var lastnftinfo;
 var lastlotterytime;
 var lnftcontract = "0x42841b445d122727A30F93d14EC428aC95e5b6C7";
 var tokencontract = "0x8229c4E2CD3FafAE3b8Cd878E6440Ed134Cc66EC";
-var Lstorecontract = "0x4A187d7DC7EAf96d44427bcb795992065d3F0873";
+var Lstorecontract = "0xF00c050274b0376622Bc5a9Ea0EC23C30269C2Ad";
 var Llotterycontract = "0x918893a5aB43976cA3E3c218533BEddB8aff4edC";
 function secsToTime(secs) {
 let d = secs / 8.64e4 | 0;
