@@ -48,9 +48,15 @@ let s = secs % 60;
 let z = n => (n < 10 ? '0' : '') + n;
 return `${d}:${z(H)}:${z(m)}:${z(s)}`
 }
-function LotteryCountr() {
+function LotteryCounter() {
 lastlotterytime = lastlotterytime - 1;
-document.getElementById('lotterytime').innerHTML = secsToTime(lastlotterytime);
+if(lastlotterytime<=0){
+    document.getElementById('lotterytime').innerHTML = 'LotteryTimeEnded!Wait For Drawing';
+}
+else{
+	document.getElementById('lotterytime').innerHTML = secsToTime(lastlotterytime);
+}
+
 }
 async function fetchlotteryinfo() {
 const w3 = new Web3('https://data-seed-prebsc-1-s1.binance.org:8545/');
@@ -210,6 +216,7 @@ async function ConnectWallet() {
 try {
 if (provider == null) {
 provider = await web3Modal.connect();
+fetchlotteryinfo();
 doalert('success', "Wallet Connected Successfully")
 fetchAccountData();
 provider.on("accountsChanged", (accounts) => {
@@ -640,7 +647,7 @@ fetchAccountData();
 await sleep(3000);
 LoadNft();
 setInterval(() => {
-LotteryCountr()
+LotteryCounter()
 }, 1000);
 await fetchlotteryinfo();
 document.querySelector("#btn-connect").addEventListener("click", ConnectWallet);
