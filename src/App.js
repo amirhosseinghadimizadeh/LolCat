@@ -83,13 +83,13 @@ RemainedTime = 0;
 }
 document.getElementById('lotteryround').innerHTML = RoundNumber;
 document.getElementById('totaltickets').innerHTML = TotalTickets;
-document.getElementById('ticketprice').innerHTML = w3.utils.fromWei(TicketPrice) + " lcat";
+document.getElementById('ticketprice').innerHTML = w3.utils.fromWei(TicketPrice) + " lcat"+"(10 Percent Fee Included)";
 document.getElementById('lotterytime').innerHTML = secsToTime(RemainedTime);
 document.getElementById('lotterywinner').innerHTML = LotteryWinner.substr(0, 4) + "..." + LotteryWinner.substr(38, 42);;
 document.getElementById('lotterywinner').href = "https://rinkeby.etherscan.io/token/" + tokencontract + "?a=" + LotteryWinner;
 document.getElementById('usertickets').innerHTML = UserTotalTicket + " Tickets";
 lastlotterytime = RemainedTime;
-document.getElementById('doparticipate').onclick = function () { participateLottery(document.getElementById('participatevalue').value, w3.utils.fromWei(TicketPrice)) };
+document.getElementById('doparticipate').onclick = function () { participateLottery(((document.getElementById('participatevalue').value)/10)*11 , w3.utils.fromWei(TicketPrice)) };
 }
 async function participateLottery(totalticket, ticketprice) {
 try {
@@ -516,7 +516,7 @@ return (
 									<span className="earn-ltoken">lcat to participate</span>
 									<div className="unstake-button">
 										<span>
-											<input type="text" placeholder={"10 Percent Fee Included"} id="participatevalue" />
+											<input type="text" placeholder={"Ticket Amount"} id="participatevalue" />
 										</span>
 										<button className="btn none-border2" id="doparticipate">participate</button>
 									</div>
