@@ -36,10 +36,10 @@ let Lstoreinstance;
 const MySwal = withReactContent(Swal);
 var lastnftinfo;
 var lastlotterytime;
-var lnftcontract = "0xf2ae43f3754643463a8f273fba3921d2d214eb06";
+var lnftcontract = "0x6C45f103664D2C0a5eCf272cDc118cE84EF17371";
 var tokencontract = "0x8229c4E2CD3FafAE3b8Cd878E6440Ed134Cc66EC";
-var Lstorecontract = "0xF00c050274b0376622Bc5a9Ea0EC23C30269C2Ad";
-var Llotterycontract = "0x918893a5aB43976cA3E3c218533BEddB8aff4edC";
+var Lstorecontract = "0xc0284c78F5b64A85505CDd3358466699c2DfD57c";
+var Llotterycontract = "0xc0284c78F5b64A85505CDd3358466699c2DfD57c";
 function secsToTime(secs) {
 let d = secs / 8.64e4 | 0;
 let H = (secs % 8.64e4) / 3.6e3 | 0;
