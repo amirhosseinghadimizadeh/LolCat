@@ -573,23 +573,23 @@ return (
 						<div class="teams-boxes">
 							<div class="teams-item">
 								<img class="person-img" src={img_1} alt="" />
-								<h3>Nicolas</h3>
-								<h4>Toulouse, France</h4>
-								<h5>CEO & Co-founder</h5>
+								<h3>BigCat</h3>
+								
+								<h5>Founder</h5>
 								<div class="all-img-social-medias"></div>
 							</div>
 							<div class="teams-item">
 								<img class="person-img" src={img_2} alt="" />
-								<h3>Nicolas</h3>
-								<h4>Toulouse, France</h4>
-								<h5>CEO & Co-founder</h5>
+								<h3>LolCatDev</h3>
+								
+								<h5>Dev</h5>
 								<div class="all-img-social-medias"></div>
 							</div>
 							<div class="teams-item">
 								<img class="person-img" src={img_3} alt="" />
-								<h3>Nicolas</h3>
-								<h4>Toulouse, France</h4>
-								<h5>CEO & Co-founder</h5>
+								<h3>CreativeCat</h3>
+				
+								<h5>Designer</h5>
 								<div class="all-img-social-medias"></div>
 							</div>
 						</div>
